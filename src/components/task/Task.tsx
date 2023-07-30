@@ -3,53 +3,6 @@ import { Task } from "../../types";
 import './task.css'
 import { AiFillDelete,  } from "react-icons/ai";
 // import { TiInputCheckedOutline,TiInputChecked } from "react-icons/ti";
-// import useTaskStore from "../../zustand/useTaskStore";
-
-
-
-// type TaskProperties ={
-//     task:Task,
-//      toggleTask:(task:Task)=>void, 
-//      deleteTask:(task:Task)=>void
-// }
-
-// const Task = ({ task, toggleTask, deleteTask }:TaskProperties) => {
-//   const { id,title, description, completed } = task;
-
-//   const {showFeedbackMessage} = useTaskStore();
-
-//   return (
-//     <div className="task_container" key={id}>
-//       <div className="tast_detail">
-//       <h3>{title}</h3>
-//       <p>{description}</p>
-//       </div>
-//       <div className="tast_action">
-//         <span onClick={() => {
-//            toggleTask(task)
-
-//           showFeedbackMessage(task.completed ? 'Task marked as incomplete' : 'Task marked as completed');
-
-//          }}
-//           >
-//           {completed ?   <TiInputCheckedOutline size={'2em'}  /> : <TiInputChecked  size={'2em'}/>}
-//         </span>
-    
-//         <span onClick={() =>{ 
-//           deleteTask(task)
-//             showFeedbackMessage('Task deleted successfully');
-        
-//         }}
-        
-//         >  <AiFillDelete size={'2em'} /></span>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Task;
-
-
 import React from 'react';
 import './Task.css';
 

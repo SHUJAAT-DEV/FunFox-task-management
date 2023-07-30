@@ -3,11 +3,20 @@ import axios from 'axios';
 import { Task } from '../types';
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
-const userId:number= Number.parseInt(import.meta.env.VITE_DB_USER);
 
 
 export const useApi = {
-  getAllTasks: async () => {
+    // Assuming the user data is stored in the mock API's "users" array
+    // Replace this with the actual login check and API call to get the user's dataß
+    login: async(username:string)=>{
+      const response = await axios.get(`${API_BASE_URL}/users`);
+      const users = response.data;
+      console.log('login' , users , username);
+      const user = users.find((user:any) => user.username === username);
+  return user
+    },
+
+  getAllTasks: async (userId:number) => {
     try {
       const response = await axios.get(`${API_BASE_URL}/tasks`);
       const allTasks = response.data;

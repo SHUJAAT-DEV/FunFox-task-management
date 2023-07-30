@@ -2,12 +2,11 @@
 import { Task } from "../types";
 import { useApi } from '../api/http';
 
-
 const initialState = {
   tasks: [],
   feedbackMessage: '',
   showFeedback: false,
-  userId: import.meta.env.VITE_DB_USER,
+  userId: 0,
 };
 
 const taskReducer = (set: any, get: any) => {
@@ -22,7 +21,9 @@ const taskReducer = (set: any, get: any) => {
   return {
     taskConfiguration: { ...initialState },
     loadTask:async()=>{
-     const taskList= await useApi.getAllTasks();
+      const userId = get().taskConfiguration.userId;
+      console.log('useriD', userId);
+     const taskList= await useApi.getAllTasks(userId);
      SET({tasks:taskList})
     },
     addTask: async(task:Task) =>{
@@ -55,6 +56,13 @@ const taskReducer = (set: any, get: any) => {
       }, 2000);
     },
     reorderTasks: (newTasks:Task) =>  SET({ tasks: newTasks }),
+
+    updateUserId :(userId:string)=>{
+      SET({userId})
+    },
+    LogOut :()=>{
+      SET({userId:0})
+    }
 
   };
 };
