@@ -1,10 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Task } from "../types";
+import { useApi } from '../api/http';
+
 
 const initialState = {
   tasks: [],
   feedbackMessage: '',
   showFeedback: false,
+  userId: import.meta.env.VITE_DB_USER,
 };
 
 const taskReducer = (set: any, get: any) => {
@@ -18,9 +21,16 @@ const taskReducer = (set: any, get: any) => {
   };
   return {
     taskConfiguration: { ...initialState },
-    addTask: (newTask:Task) =>{
+    loadTask:async()=>{
+     const taskList= await useApi.getAllTasks();
+     SET({tasks:taskList})
+    },
+    addTask: async(task:Task) =>{
+      const userId:number= Number.parseInt(get().taskConfiguration.userId);
+      console.log('taskConfiguration',userId);
+      const newTask = await useApi.addTask({...task, userId});
       const tasks = get().taskConfiguration.tasks;
-      SET({ tasks: [...tasks, { ...newTask, id: `${tasks.length + Math.random()}` }] });
+      SET({ tasks: [...tasks, { ...newTask }] });
 
     } ,
     toggleTask: (taskToToggle:Task) =>{
@@ -31,7 +41,8 @@ const taskReducer = (set: any, get: any) => {
         ),
       })
     },
-    deleteTask: (taskToDelete:Task) =>{
+    deleteTask: async(taskToDelete:Task) =>{
+      await useApi.deleteTask(taskToDelete.id);
     const tasks = get().taskConfiguration.tasks;
       SET({
         tasks: tasks.filter((task:Task) => task !== taskToDelete),
