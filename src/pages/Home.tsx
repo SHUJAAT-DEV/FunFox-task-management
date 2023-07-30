@@ -1,15 +1,15 @@
 
 import { useEffect } from 'react';
 import useTaskStore from '../zustand/useTaskStore';
-import { AiOutlineLogout,  } from "react-icons/ai";
 import { useNavigate } from 'react-router-dom';
 import { From ,Task, ToastMessage} from '../components';
+import PageLayout from '../components/layouts/PageLayout';
 
 function Home() {
     const navigate = useNavigate();
 const {
-    toggleTask,deleteTask, loadTask,LogOut,
-    taskConfiguration:{feedbackMessage,tasks,showFeedback}
+    loadTask,LogOut,
+    taskConfiguration:{feedbackMessage,showFeedback}
 }=  useTaskStore();
 
 useEffect(() => {
@@ -22,13 +22,14 @@ function handleLogOut(){
 }
 
 return (
-    <div className='container'> 
-        <span onClick={handleLogOut}><AiOutlineLogout /></span>
-        <h1>Task Management App</h1>
+    <PageLayout 
+      handleLogOut={handleLogOut}
+      title='Task Management App'
+    >
         <From />
-        <Task tasks={tasks} toggleTask={toggleTask} deleteTask={deleteTask} />
+        <Task />
         {showFeedback && <ToastMessage message={feedbackMessage} />}
-    </div>
+     </PageLayout>
     );
 }
 

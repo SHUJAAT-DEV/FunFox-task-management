@@ -3,9 +3,10 @@ import './feedbackMessage.css';
 
 interface FeedbackMessageProps {
   message: string;
+  isError?:boolean;
 }
 
-const FeedbackMessage: React.FC<FeedbackMessageProps> = ({ message }) => {
+const FeedbackMessage: React.FC<FeedbackMessageProps> = ({ message,isError }) => {
   const [show, setShow] = useState<boolean>(true);
 
   useEffect(() => {
@@ -18,7 +19,7 @@ const FeedbackMessage: React.FC<FeedbackMessageProps> = ({ message }) => {
     };
   }, []);
 
-  return show ? <div className="feedback-message">{message}</div> : null;
+  return show ? <div className={ isError ?  'feedback-error-message ' : "feedback-message"} >{message}</div> : null;
 };
 
 export default FeedbackMessage;

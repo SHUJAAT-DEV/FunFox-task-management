@@ -11,7 +11,6 @@ export const useApi = {
     login: async(username:string)=>{
       const response = await axios.get(`${API_BASE_URL}/users`);
       const users = response.data;
-      console.log('login' , users , username);
       const user = users.find((user:any) => user.username === username);
   return user
     },
@@ -20,10 +19,8 @@ export const useApi = {
     try {
       const response = await axios.get(`${API_BASE_URL}/tasks`);
       const allTasks = response.data;
-       console.log('sdfasdfsadf', userId);
          // Filter tasks based on the provided userId
          const filteredTasks = allTasks.filter((task:any) => task.userId === userId);
-         console.log('API_BASE_URL',filteredTasks ,allTasks);
          return filteredTasks;
     } catch (error) {
       console.error('Error fetching tasks:', error);

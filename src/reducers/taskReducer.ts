@@ -22,13 +22,11 @@ const taskReducer = (set: any, get: any) => {
     taskConfiguration: { ...initialState },
     loadTask:async()=>{
       const userId = get().taskConfiguration.userId;
-      console.log('useriD', userId);
      const taskList= await useApi.getAllTasks(userId);
      SET({tasks:taskList})
     },
     addTask: async(task:Task) =>{
       const userId:number= Number.parseInt(get().taskConfiguration.userId);
-      console.log('taskConfiguration',userId);
       const newTask = await useApi.addTask({...task, userId});
       const tasks = get().taskConfiguration.tasks;
       SET({ tasks: [...tasks, { ...newTask }] });
