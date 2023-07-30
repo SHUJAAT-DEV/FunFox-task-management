@@ -3,6 +3,8 @@ import { Task } from "../types";
 
 const initialState = {
   tasks: [],
+  feedbackMessage: '',
+  showFeedback: false,
 };
 
 const taskReducer = (set: any, get: any) => {
@@ -18,7 +20,7 @@ const taskReducer = (set: any, get: any) => {
     taskConfiguration: { ...initialState },
     addTask: (newTask:Task) =>{
       const tasks = get().taskConfiguration.tasks;
-      SET({ tasks: [...tasks, { ...newTask, id: tasks.length + 1 }] });
+      SET({ tasks: [...tasks, { ...newTask, id: `${tasks.length + Math.random()}` }] });
 
     } ,
     toggleTask: (taskToToggle:Task) =>{
@@ -35,6 +37,14 @@ const taskReducer = (set: any, get: any) => {
         tasks: tasks.filter((task:Task) => task !== taskToDelete),
       })
     },
+    showFeedbackMessage: (message:string) => {
+      SET({ feedbackMessage: message, showFeedback: true });
+      setTimeout(() => {
+        SET({ showFeedback: false });
+      }, 2000);
+    },
+    reorderTasks: (newTasks:Task) =>  SET({ tasks: newTasks }),
+
   };
 };
 

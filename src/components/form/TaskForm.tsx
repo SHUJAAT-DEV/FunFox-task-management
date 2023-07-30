@@ -1,5 +1,5 @@
 import  { useState } from 'react';
-import useTaskStore from '../zustand/useTaskStore';
+import useTaskStore from '../../zustand/useTaskStore';
 
 const TaskForm = () => {
   const [title, setTitle] = useState('');

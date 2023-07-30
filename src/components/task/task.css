@@ -1,0 +1,65 @@
+
+
+/* Styling for the task container */
+.task {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 8px 0;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+   width: 100%;
+  /* Flexbox layout for buttons */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Styling for task title */
+.task h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #333;
+}
+
+/* Styling for task description */
+.task p {
+  margin: 8px 0;
+  font-size: 14px;
+  color: #777;
+}
+
+/* Styling for action buttons */
+.task button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.task button:hover {
+  background-color: #f0f0f0;
+}
+
+/* Styling for completed task */
+.task.completed {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+}
+
+/* Styling for dragging state */
+.task-dragging {
+  opacity: 0.6;
+}
+
+.task-action {
+
+  display: flex;
+  gap: .5rem;
+}
+.task-detail {
+  display: flex;
+  flex-direction: column;
+}

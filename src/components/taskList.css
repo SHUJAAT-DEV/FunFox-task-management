@@ -1,0 +1,32 @@
+/* TaskList.css */
+.task-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  /* Animation for entering and exiting tasks */
+  .task-enter {
+    opacity: 0;
+  }
+  .task-enter-active {
+    opacity: 1;
+    transition: opacity 300ms ease-in;
+  }
+  .task-exit {
+    opacity: 1;
+  }
+  .task-exit-active {
+    opacity: 0;
+    transition: opacity 300ms ease-out;
+  }
+  
+
+
+@media (max-width: 768px) {
+  .task-list {
+    flex-direction: column;
+    align-items: center;
+  }
+}

@@ -28,6 +28,7 @@ form {
   button {
     padding: 10px;
     border-radius: .5rem;
+
   }
   
   @media (max-width: 768px) {
@@ -36,19 +37,5 @@ form {
     }
   }
 
-  /* TaskList.css */
-.task-list {
-    display: flex;
-     flex-direction: column;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: space-between;
-  }
-  
-  @media (max-width: 768px) {
-    .task-list {
-      flex-direction: column;
-      align-items: center;
-    }
-  }
+
  
