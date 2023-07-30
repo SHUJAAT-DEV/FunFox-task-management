@@ -1,15 +1,12 @@
 import { Task } from '../types';
+import useTaskStore from '../zustand/useTaskStore';
 import TaskItem from './Task';
 
-type TaskProperties ={
-    tasks:Task[],
-     toggleTask:(task:Task)=>void, 
-     deleteTask:(task:Task)=>void
-}
 
-const TaskList = ({ tasks, toggleTask, deleteTask }:TaskProperties) => {
+const TaskList = () => {
+  const  {taskConfiguration:{tasks},toggleTask,deleteTask} =useTaskStore();
   return (
-    <div>
+    <div className="task-list">
       {tasks.map((task: Task) => (
         <TaskItem
           key={task.id}

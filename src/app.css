@@ -1,0 +1,54 @@
+
+.container {
+margin: 2rem;
+display: flex;
+flex-direction: column;
+gap: 2rem;
+
+}
+.container h1  {
+  align-self: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 34rem;
+    max-width: 40rem;
+    margin: 0 auto;
+  }
+  
+  input,
+  textarea {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: .5rem;
+  }
+  
+  button {
+    padding: 10px;
+    border-radius: .5rem;
+  }
+  
+  @media (max-width: 768px) {
+    form {
+      max-width: 100%;
+    }
+  }
+
+  /* TaskList.css */
+.task-list {
+    display: flex;
+     flex-direction: column;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+  }
+  
+  @media (max-width: 768px) {
+    .task-list {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+ 

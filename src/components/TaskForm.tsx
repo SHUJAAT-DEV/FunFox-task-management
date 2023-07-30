@@ -1,9 +1,11 @@
 import  { useState } from 'react';
-import { Task } from '../types';
+import useTaskStore from '../zustand/useTaskStore';
 
-const TaskForm = ({ addTask }:{addTask:(formData:Task)=>void}) => {
+const TaskForm = () => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
+
+  const   { addTask }  =useTaskStore();
 
   const handleSubmit = (event: { preventDefault: () => void; }) => {
     event.preventDefault();

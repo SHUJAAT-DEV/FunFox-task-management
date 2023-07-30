@@ -1,4 +1,9 @@
 import { Task } from "../types";
+import './task.css'
+import { AiFillDelete,  } from "react-icons/ai";
+import { TiInputCheckedOutline,TiInputChecked } from "react-icons/ti";
+
+
 
 type TaskProperties ={
     task:Task,
@@ -10,13 +15,18 @@ const Task = ({ task, toggleTask, deleteTask }:TaskProperties) => {
   const { title, description, completed } = task;
 
   return (
-    <div>
+    <div className="task_container">
+      <div className="tast_detail">
       <h3>{title}</h3>
       <p>{description}</p>
-      <button onClick={() => toggleTask(task)}>
-        {completed ? 'Incomplete' : 'Completed'}
-      </button>
-      <button onClick={() => deleteTask(task)}>Delete</button>
+      </div>
+      <div className="tast_action">
+        <span onClick={() => toggleTask(task)}>
+          {completed ?   <TiInputCheckedOutline size={'2em'}  /> : <TiInputChecked  size={'2em'}/>}
+        </span>
+    
+        <span onClick={() => deleteTask(task)}>  <AiFillDelete size={'2em'} /></span>
+      </div>
     </div>
   );
 };
