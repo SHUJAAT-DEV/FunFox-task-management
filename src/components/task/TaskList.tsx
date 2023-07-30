@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
-import Task from './task/Task';
+import Task from './Task';
 import './taskList.css';
-import useTaskStore from '../zustand/useTaskStore';
+import useTaskStore from '../../zustand/useTaskStore';
 
 interface TaskListProps {
   tasks: Task[];

@@ -25,6 +25,7 @@
     {
       "id": 3,
       "name": "User 3",
+      "username": "user_3",
       "groupId": 2
     }
   ],

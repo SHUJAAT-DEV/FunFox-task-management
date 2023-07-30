@@ -7,7 +7,7 @@ function PrivateRoutes({ children }: { children?: ReactNode; }) {
     return (
         <>
             {
-                userId !== 0 ? (
+                userId && userId !== 0 ? (
                     <div>
                         {children || <Outlet />}
                     </div>
